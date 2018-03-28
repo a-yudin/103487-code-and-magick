@@ -197,14 +197,16 @@
   }
 
   var getWizardX = function(width) {
-    var CANVAS_HALF_WIDTH = width / 2;
-    var WIZARD_HALD_WIDTH = WIZARD_WIDTH / 2;
-    return CANVAS_HALF_WIDTH - WIZARD_HALD_WIDTH;
+    var WIDTH_DIVIDER = 2;
+    var canvasHalfWidth = width / WIDTH_DIVIDER;
+    var wizardHalfWidth = WIZARD_WIDTH / WIDTH_DIVIDER;
+    return canvasHalfWidth - wizardHalfWidth;
   }
 
   var getWizardY = function(height) {
-    var CANVAS_THIRD_HEIGHT = height / 3;
-    return CANVAS_THIRD_HEIGHT - getWizardHeight();
+    var HEIGHT_DIVIDER = 3;
+    var canvasThirdHeight = height / HEIGHT_DIVIDER;
+    return canvasThirdHeight - getWizardHeight();
   }
 </script>
 <script src="js/game.js"></script>
