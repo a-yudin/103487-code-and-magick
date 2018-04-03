@@ -1,6 +1,6 @@
 'use strict'
 
-window.renderStatistics = function(ctx, names, times) {
+window.renderStatistics = function (ctx, names, times) {
   var TEXT_FONT_SIZE = '16px';
   var TEXT_FONT_FAMILY = 'PT Mono';
   var TEXT_COLOR = 'rgb(0, 0, 0)';
@@ -10,17 +10,17 @@ window.renderStatistics = function(ctx, names, times) {
   var titleTextNewLineYCoordinate = TITLE_TEXT_Y_COORDINATE + TITLE_TEXT_Y_BETWEEN_LINES_OFFSET;
 
   drawCloud(ctx);
-  printText(ctx, 'Ура вы победили!', TEXT_COLOR, TEXT_FONT_SIZE, TEXT_FONT_FAMILY , TITLE_TEXT_X_COORDINATE, TITLE_TEXT_Y_COORDINATE);
-  printText(ctx, 'Список результатов:', TEXT_COLOR, TEXT_FONT_SIZE, TEXT_FONT_FAMILY , TITLE_TEXT_X_COORDINATE, titleTextNewLineYCoordinate);
+  printText(ctx, 'Ура вы победили!', TEXT_COLOR, TEXT_FONT_SIZE, TEXT_FONT_FAMILY, TITLE_TEXT_X_COORDINATE, TITLE_TEXT_Y_COORDINATE);
+  printText(ctx, 'Список результатов:', TEXT_COLOR, TEXT_FONT_SIZE, TEXT_FONT_FAMILY, TITLE_TEXT_X_COORDINATE, titleTextNewLineYCoordinate);
   drawBarChart(ctx, names, times, TEXT_COLOR, TEXT_FONT_SIZE, TEXT_FONT_FAMILY);
-}
+};
 
-var printText = function(ctx, text, textColor, textFontSize, textFont, initialCoordinateX, initialCoordinateY) {
+var printText = function (ctx, text, textColor, textFontSize, textFont, initialCoordinateX, initialCoordinateY) {
   var FONT_STYLE_GAP = ' ';
   ctx.fillStyle = textColor;
   ctx.font = textFontSize + FONT_STYLE_GAP +  textFont;
   ctx.fillText(text, initialCoordinateX, initialCoordinateY);
-}
+};
 
 var drawCloud = function(ctx) {
   var CLOUD_COLOR = 'rgb(255, 255, 255)';
@@ -67,9 +67,9 @@ var drawCloud = function(ctx) {
   ctx.fill();
   ctx.shadowOffsetX = DEFAULT_OFFSET;
   ctx.shadowOffsetY = DEFAULT_OFFSET;
-}
+};
 
-var drawBarChart = function(ctx, names, times, textColor, textFontSize, textFont) {
+var drawBarChart = function (ctx, names, times, textColor, textFontSize, textFont) {
   var BAR_CHART_INITIAL_X_COORDINATE = 140;
   var BAR_INITIAL_Y_COORDINATE = 90;
   var TIME_Y_OFFSET = 10;
@@ -91,7 +91,7 @@ var drawBarChart = function(ctx, names, times, textColor, textFontSize, textFont
   var randomBarColor = '';
   var maximalTime = Math.max.apply(null, times);
 
-  for (var i = 0; i < names.length ; i++) {
+  for (var i = 0; i < names.length; i++) {
     if (names[i] === PLAYER_NAME) {
       randomBarColor = PLAYER_COLOR;
     } else {
@@ -104,12 +104,12 @@ var drawBarChart = function(ctx, names, times, textColor, textFontSize, textFont
     barCoordinateY = BAR_INITIAL_Y_COORDINATE + (COLUMN_MAX_HEIGHT - columnHeight);
     timeCoordinateY = barCoordinateY - TIME_Y_OFFSET;
     printText(ctx, integerPlayedTime, textColor, textFontSize, textFont, coordinateX, timeCoordinateY);
-    printText(ctx, names[i], textColor, textFontSize, textFont , coordinateX, PLAYER_NAME_INITIAL_Y_COORDINATE);
+    printText(ctx, names[i], textColor, textFontSize, textFont, coordinateX, PLAYER_NAME_INITIAL_Y_COORDINATE);
     drawBar(ctx, randomBarColor, coordinateX, barCoordinateY, COLUMN_WIDTH, columnHeight);
   }
-}
+};
 
-var drawBar = function(ctx, barColor, initialCoordinateX, initialCoordinateY, barWidth, barHeight) {
+var drawBar = function (ctx, barColor, initialCoordinateX, initialCoordinateY, barWidth, barHeight) {
   ctx.fillStyle = barColor;
   ctx.fillRect(initialCoordinateX, initialCoordinateY, barWidth, barHeight);
-}
+};
