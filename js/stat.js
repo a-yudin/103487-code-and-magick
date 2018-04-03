@@ -69,7 +69,7 @@ var drawCloud = function(ctx) {
   ctx.shadowOffsetY = DEFAULT_OFFSET;
 }
 
-var drawBarChart = function(ctx, names, times, textColor, textFontSize, textFont,) {
+var drawBarChart = function(ctx, names, times, textColor, textFontSize, textFont) {
   var BAR_CHART_INITIAL_X_COORDINATE = 140;
   var BAR_INITIAL_Y_COORDINATE = 90;
   var TIME_Y_OFFSET = 10;
