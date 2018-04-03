@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 window.renderStatistics = function (ctx, names, times) {
   var TEXT_FONT_SIZE = '16px';
@@ -18,11 +18,11 @@ window.renderStatistics = function (ctx, names, times) {
 var printText = function (ctx, text, textColor, textFontSize, textFont, initialCoordinateX, initialCoordinateY) {
   var FONT_STYLE_GAP = ' ';
   ctx.fillStyle = textColor;
-  ctx.font = textFontSize + FONT_STYLE_GAP +  textFont;
+  ctx.font = textFontSize + FONT_STYLE_GAP + textFont;
   ctx.fillText(text, initialCoordinateX, initialCoordinateY);
 };
 
-var drawCloud = function(ctx) {
+var drawCloud = function (ctx) {
   var CLOUD_COLOR = 'rgb(255, 255, 255)';
   var CLOUD_SHADOW_COLOR = 'rgba(0, 0, 0, 0.7)';
   var CLOUD_SHADOW_X_OFFSET = 10;
