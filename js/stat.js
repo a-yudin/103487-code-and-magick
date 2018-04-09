@@ -96,7 +96,7 @@ var drawBarChart = function (ctx, names, times) {
       randomBarColor = 'hsl(240, ' + randomSaturateProperty + '%, 50%)';
     }
     columnHeight = COLUMN_MAX_HEIGHT / maxTime * times[i];
-    integerPlayedTime = Math.round(times[i]);
+    integerPlayedTime = Math.round(times[i]) + '';
     coordinateX = i * (COLUMN_WIDTH + BETWEEN_COLUMN_GAP) + BAR_CHART_INITIAL_X_COORDINATE;
     barCoordinateY = BAR_INITIAL_Y_COORDINATE + (COLUMN_MAX_HEIGHT - columnHeight);
     timeCoordinateY = barCoordinateY - TIME_Y_OFFSET;
