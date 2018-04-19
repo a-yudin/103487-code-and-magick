@@ -2,13 +2,9 @@
 
 var NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
 var SURNAMES = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
-var RGB_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
-var COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
+var COAT_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
+var EYE_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
 var WIZARDS_NUMBER = 4;
-var WIZARD_NAMES_NUMBER = 8;
-var WIZARD_SURNAMES_NUMBER = 8;
-var WIZARD_COAT_COLORS = 6;
-var WIZARD_EYE_COLORS = 5;
 var similarWizards = [];
 var setupElement = document.querySelector('.setup');
 var templateSimilarWizard = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
@@ -20,9 +16,9 @@ var generateRandomNumber = function (min, max) {
 
 var generateWizard = function () {
   return {
-    'name': NAMES[generateRandomNumber(0, WIZARD_NAMES_NUMBER)] + ' ' + SURNAMES[generateRandomNumber(0, WIZARD_SURNAMES_NUMBER)],
-    'coatColor': RGB_COLORS[generateRandomNumber(0, WIZARD_COAT_COLORS)],
-    'eyesColor': COLORS[generateRandomNumber(0, WIZARD_EYE_COLORS)]
+    'name': NAMES[generateRandomNumber(0, NAMES.length - 1)] + ' ' + SURNAMES[generateRandomNumber(0, SURNAMES.length - 1)],
+    'coatColor': RGB_COLORS[generateRandomNumber(0, COAT_COLORS.length - 1)],
+    'eyesColor': COLORS[generateRandomNumber(0, EYE_COLORS.length - 1)]
   };
 };
 
