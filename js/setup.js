@@ -17,8 +17,8 @@ var generateRandomNumber = function (min, max) {
 var generateWizard = function () {
   return {
     'name': NAMES[generateRandomNumber(0, NAMES.length - 1)] + ' ' + SURNAMES[generateRandomNumber(0, SURNAMES.length - 1)],
-    'coatColor': RGB_COLORS[generateRandomNumber(0, COAT_COLORS.length - 1)],
-    'eyesColor': COLORS[generateRandomNumber(0, EYE_COLORS.length - 1)]
+    'coatColor': COAT_COLORS[generateRandomNumber(0, COAT_COLORS.length - 1)],
+    'eyesColor': EYE_COLORS[generateRandomNumber(0, EYE_COLORS.length - 1)]
   };
 };
 
