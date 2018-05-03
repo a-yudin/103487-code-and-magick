@@ -12,7 +12,7 @@ var setupOpen = document.querySelector('.setup-open');
 var setupClose = setup.querySelector('.setup-close');
 var templateSimilarWizard = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
 var similarWizardsContainer = document.querySelector('.setup-similar');
-var userNameValue = setup.querySelector('.setup-user-name');
+var userName = setup.querySelector('.setup-user-name');
 var wizardEyes = setup.querySelector('.setup-wizard .wizard-eyes');
 var wizardEyesValue = setup.querySelector('.setup-wizard-appearance input[name="eyes-color"]');
 var fireball = setup.querySelector('.setup-fireball-wrap');
@@ -67,7 +67,7 @@ var addEventListeners = function () {
   setupClose.addEventListener('keydown', closeSetupEnterPressHandler);
   wizardEyes.addEventListener('click', wizardEyesChangeColorHandler);
   fireball.addEventListener('click', fireballChangeColorHandler);
-  userNameValue.addEventListener('invalid', nameInputValidityHandler);
+  userName.addEventListener('invalid', nameInputValidityHandler);
   document.addEventListener('keydown', closeSetupEscPressHandler);
 };
 
@@ -76,7 +76,7 @@ var removeEventListeners = function () {
   setupClose.removeEventListener('keydown', closeSetupEnterPressHandler);
   wizardEyes.removeEventListener('click', wizardEyesChangeColorHandler);
   fireball.removeEventListener('click', fireballChangeColorHandler);
-  userNameValue.removeEventListener('invalid', nameInputValidityHandler);
+  userName.removeEventListener('invalid', nameInputValidityHandler);
   document.removeEventListener('keydown', closeSetupEscPressHandler);
 };
 
@@ -115,20 +115,23 @@ var closeSetupEnterPressHandler = function (evt) {
 };
 
 var closeSetupEscPressHandler = function (evt) {
+  if (document.activeElement === userName) {
+    return;
+  }
   if (evt.keyCode === ESC_KEYCODE) {
     closeSetup();
   }
 };
 
 var nameInputValidityHandler = function () {
-  if (userNameValue.validity.tooShort) {
-    userNameValue.setCustomValidity('Имя должно состоять минимум из 2-х символов');
-  } else if (userNameValue.validity.tooLong) {
-    userNameValue.setCustomValidity('Имя не должно превышать 25-ти символов');
-  } else if (userNameValue.validity.valueMissing) {
-    userNameValue.setCustomValidity('Обязательное поле');
+  if (userName.validity.tooShort) {
+    userName.setCustomValidity('Имя должно состоять минимум из 2-х символов');
+  } else if (userName.validity.tooLong) {
+    userName.setCustomValidity('Имя не должно превышать 25-ти символов');
+  } else if (userName.validity.valueMissing) {
+    userName.setCustomValidity('Обязательное поле');
   } else {
-    userNameValue.setCustomValidity('');
+    userName.setCustomValidity('');
   }
 };
 
