@@ -1,8 +1,33 @@
 'use strict';
 
-var NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
-var SURNAMES = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
-var COAT_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
+var NAMES = [
+  'Иван',
+  'Хуан Себастьян',
+  'Мария',
+  'Кристоф',
+  'Виктор',
+  'Юлия',
+  'Люпита',
+  'Вашингтон'
+];
+var SURNAMES = [
+  'да Марья',
+  'Верон',
+  'Мирабелла',
+  'Вальц',
+  'Онопко',
+  'Топольницкая',
+  'Нионго',
+  'Ирвинг'
+];
+var COAT_COLORS = [
+  'rgb(101, 137, 164)',
+  'rgb(241, 43, 107)',
+  'rgb(146, 100, 161)',
+  'rgb(56, 159, 117)',
+  'rgb(215, 210, 55)',
+  'rgb(0, 0, 0)'
+];
 var EYE_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
 var FIREBALL_COLORS = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848]'];
 var WIZARDS_NUMBER = 4;
@@ -10,11 +35,13 @@ var similarWizards = [];
 var setup = document.querySelector('.setup');
 var setupOpen = document.querySelector('.setup-open');
 var setupClose = setup.querySelector('.setup-close');
-var templateSimilarWizard = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
+var templateSimilarWizard = document.querySelector(
+    '#similar-wizard-template').content.querySelector('.setup-similar-item');
 var similarWizardsContainer = document.querySelector('.setup-similar');
 var userName = setup.querySelector('.setup-user-name');
 var wizardEyes = setup.querySelector('.setup-wizard .wizard-eyes');
-var wizardEyesValue = setup.querySelector('.setup-wizard-appearance input[name="eyes-color"]');
+var wizardEyesValue = setup.querySelector(
+    '.setup-wizard-appearance input[name="eyes-color"]');
 var fireball = setup.querySelector('.setup-fireball-wrap');
 var fireballValue = fireball.querySelector('input[name="fireball-color"]');
 var ESC_KEYCODE = 27;
@@ -30,7 +57,8 @@ var getRandomColorFromArray = function (colorsArray) {
 
 var generateWizard = function () {
   return {
-    'name': NAMES[generateRandomNumber(0, NAMES.length - 1)] + ' ' + SURNAMES[generateRandomNumber(0, SURNAMES.length - 1)],
+    'name': NAMES[generateRandomNumber(0, NAMES.length - 1)] + ' ' + SURNAMES[
+        generateRandomNumber(0, SURNAMES.length - 1)],
     'coatColor': getRandomColorFromArray(COAT_COLORS),
     'eyesColor': getRandomColorFromArray(EYE_COLORS)
   };
@@ -45,9 +73,12 @@ var createWizardsArray = function () {
 var createWizardElement = function (number) {
   var wizardElement = templateSimilarWizard.cloneNode(true);
 
-  wizardElement.querySelector('.setup-similar-label').textContent = similarWizards[number].name;
-  wizardElement.querySelector('.wizard-coat').style.fill = similarWizards[number].coatColor;
-  wizardElement.querySelector('.wizard-eyes').style.fill = similarWizards[number].eyesColor;
+  wizardElement.querySelector(
+      '.setup-similar-label').textContent = similarWizards[number].name;
+  wizardElement.querySelector(
+      '.wizard-coat').style.fill = similarWizards[number].coatColor;
+  wizardElement.querySelector(
+      '.wizard-eyes').style.fill = similarWizards[number].eyesColor;
 
   return wizardElement;
 };
